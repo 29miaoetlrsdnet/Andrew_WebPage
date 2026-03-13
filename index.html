@@ -1,106 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrew Stanish</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #6dd5fa, #2980b9);
-            color: #fff;
-            text-align: center;
-        }
+<title>Andrew Stanish</title>
 
-        header {
-            padding: 60px 20px;
-        }
+<style>
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-        p.subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
+html,body{
+height:100%;
+font-family:"Segoe UI", Arial, sans-serif;
+background:linear-gradient(180deg,#e8f6ff,#b9e2ff);
+color:#03324d;
+text-align:center;
+}
 
-        .button-container {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+/* Layout to push footer to bottom */
 
-        .nav-button {
-            background: #ffffff;
-            color: #2980b9;
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+.wrapper{
+min-height:100%;
+display:flex;
+flex-direction:column;
+}
 
-        .nav-button:hover {
-            background: #f1f1f1;
-            transform: translateY(-3px);
-        }
+main{
+flex:1;
+}
 
-        footer {
-            margin-top: 60px;
-            padding: 20px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
+/* HEADER */
 
-        /* Decorative floating circles */
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-            animation: float 8s infinite ease-in-out;
-        }
+header{
+padding:60px 20px 20px;
+}
 
-        .circle.small { width: 60px; height: 60px; top: 20%; left: 10%; }
-        .circle.medium { width: 120px; height: 120px; top: 60%; left: 70%; }
-        .circle.large { width: 200px; height: 200px; top: 30%; left: 80%; }
+h1{
+font-size:3rem;
+}
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-    </style>
+.subtitle{
+margin-top:10px;
+font-size:1.2rem;
+opacity:.85;
+}
+
+/* PROFILE IMAGE */
+
+.profile-container{
+margin-top:25px;
+}
+
+.profile-img{
+width:220px;
+height:220px;
+object-fit:cover;
+border-radius:50%;
+border:6px solid white;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+/* CURLING HOUSE */
+
+.house{
+position:absolute;
+width:420px;
+height:420px;
+border-radius:50%;
+left:50%;
+top:55%;
+transform:translate(-50%,-50%);
+z-index:-1;
+
+background:
+radial-gradient(circle,
+#1e90ff 0 70px,
+white 70px 110px,
+#d91c1c 110px 160px,
+white 160px 210px,
+#1e90ff 210px);
+
+opacity:.25;
+}
+
+/* BUTTONS */
+
+.button-container{
+margin-top:35px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+}
+
+.nav-button{
+background:rgba(255,255,255,.9);
+padding:16px 32px;
+border-radius:40px;
+text-decoration:none;
+font-size:1.1rem;
+font-weight:600;
+color:#03324d;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+transition:.25s;
+}
+
+.nav-button:hover{
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 12px 25px rgba(0,0,0,.25);
+background:white;
+}
+
+/* CURLING STONES */
+
+
+.stone{
+position:absolute;
+width:120px;
+height:65px;
+border-radius:40px;
+
+/* smooth emoji-style stone */
+background:linear-gradient(
+to bottom,
+#e9ecef 0%,
+#cfd4d9 40%,
+#9da3a9 70%,
+#7f868c 100%
+);
+
+/* depth + ice shadow */
+box-shadow:
+inset 0 6px 8px rgba(255,255,255,.7),
+inset 0 -10px 12px rgba(0,0,0,.35),
+0 10px 16px rgba(0,0,0,.35);
+}
+
+/* thick gray top ring */
+.stone::before{
+content:"";
+position:absolute;
+
+top:-8px;
+left:6px;
+
+width:108px;
+height:32px;
+
+border-radius:50%;
+
+background:linear-gradient(
+to bottom,
+#f5f6f7,
+#c3c7cc 45%,
+#a0a6ac
+);
+
+box-shadow:
+inset 0 -4px 6px rgba(0,0,0,.35),
+0 3px 4px rgba(0,0,0,.3);
+}
+
+/* emoji-style red handle */
+.stone::after{
+content:"";
+position:absolute;
+
+top:-22px;
+left:34px;
+
+width:50px;
+height:22px;
+
+border-radius:14px 14px 8px 8px;
+
+background:linear-gradient(
+to bottom,
+#ff5a5a,
+#d81f1f
+);
+
+box-shadow:
+inset 0 3px 4px rgba(255,255,255,.5),
+inset 0 -4px 5px rgba(0,0,0,.35),
+0 3px 5px rgba(0,0,0,.35);
+}
+
+/* animation positions */
+
+.stone.left{
+top:40%;
+left:7%;
+animation:slide 6s infinite ease-in-out;
+}
+
+.stone.right{
+top:65%;
+right:7%;
+animation:slide 7s infinite ease-in-out reverse;
+}
+
+@keyframes slide{
+0%{transform:translateX(0)}
+50%{transform:translateX(40px)}
+100%{transform:translateX(0)}
+}
+
+/* FOOTER */
+
+footer{
+padding:20px;
+font-size:.9rem;
+opacity:.75;
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- Decorative circles -->
-    <div class="circle small"></div>
-    <div class="circle medium"></div>
-    <div class="circle large"></div>
+<div class="wrapper">
 
-    <header>
-        <h1>Welcome to Andrew's Webpage</h1>
-        <p class="subtitle">Where you can learn all about Andrew Stanish!</p>
-    </header>
+<div class="house"></div>
+<div class="stone left"></div>
+<div class="stone right"></div>
 
-    <div class="button-container">
-        <a href="https://29miaoet.github.io/Andrew_WebPage/Andrew_Stanish.html" class="nav-button">Andrew's Formal Webpage</a>
-        <a href="https://29miaoet.github.io/Andrew_WebPage/Andrew_Stanish_Fake.html" class="nav-button">Andrew's Informal Webpage</a>
-        <a href="https://en.wikipedia.org/wiki/User:29miaoet/sandbox" class="nav-button">Andrew's Wikipedia Article</a>
-    </div>
+<main>
 
-    <footer>
-        © 2026 Andrew's Personal Webpage — Designed by Ethan Miao
-    </footer>
+<header>
+<h1>Andrew Stanish</h1>
+<p class="subtitle">Curling Athlete</p>
+</header>
+
+<div class="profile-container">
+<img src="https://29miaoet.github.io/Andrew_WebPage/image.png" alt="Profile Photo" class="profile-img">
+</div>
+
+<div class="button-container">
+
+<a href="https://29miaoet.github.io/Andrew_WebPage/Andrew_Stanish.html" class="nav-button">
+Formal Webpage
+</a>
+
+<a href="https://29miaoet.github.io/Andrew_WebPage/Andrew_Stanish_Fake.html" class="nav-button">
+Informal Webpage
+</a>
+
+<a href="https://en.wikipedia.org/wiki/User:29miaoet/sandbox" class="nav-button">
+Wikipedia Article
+</a>
+
+</div>
+
+</main>
+
+<footer>
+© 2026 Andrew's Personal Webpage — Designed by Ethan Miao
+</footer>
+
+</div>
 
 </body>
 </html>
